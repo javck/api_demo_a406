@@ -42,18 +42,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs = $request->all();
-        $input = ['title' => $inputs['title'] , 'content' => $inputs['content']];
+        $result = $request->path();
+        return $result;
+        // $input = ['title' => $inputs['title'] , 'content' => $inputs['content']];
 
-        $post = Post::create($input);
+        // $post = Post::create($input);
 
-        if(isset($post)){
-            $data = ['post' => $post];
-            return $this->makeJson(1,$data,'新增文章成功');
-        }else{
-            $data = ['post' => $post];
-            return $this->makeJson(0,null,'新增文章失敗');
-        }
+        // if(isset($post)){
+        //     $data = ['post' => $post];
+        //     return $this->makeJson(1,$data,'新增文章成功');
+        // }else{
+        //     $data = ['post' => $post];
+        //     return $this->makeJson(0,null,'新增文章失敗');
+        // }
     }
 
     /**

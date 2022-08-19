@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/foo/bar',function(Request $request){
+    dd($request->header('Cache-Control'));
+});
+
+Route::view('/form','form');
+Route::post('/form/submit',function(Request $request){
+    dd($request->pic->isValid());
+    $pic = $request->pic;
+    $pic->move()
 });
